@@ -42,3 +42,7 @@ Parsing the map elements:
 [ X ] - Define the intersection with the walls.<br>
 [ X ] - cast the rays.<br>
 [ X ] - 3D / Textures.<br>
+
+
+
+
