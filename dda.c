@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 18:39:22 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/25 13:58:55 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:07:19 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,11 +163,13 @@ void find_short_distance(t_all *cub)
     {
         cub->var_d.x1 = cub->var_d.wallhitx;
         cub->var_d.y1 = cub->var_d.wallhity;
+        cub->ray->hor = true;
     }
     else
     {
         cub->var_d.x1 = cub->var_d.wallhitx1;
         cub->var_d.y1 = cub->var_d.wallhity1;
+        cub->ray->hor = false;
     }
 }
 void horizontal_inter(t_all *cub)
