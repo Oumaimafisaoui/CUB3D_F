@@ -41,6 +41,7 @@ Parsing the map elements:
 10 - launch the rays.<br>
 [ X ] - Define the intersection with the walls.<br>
 [ X ] - cast the rays.<br>
+[X]
 [ X ] - 3D / Textures.<br>
 [X] - textures
 
