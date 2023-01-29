@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:18:49 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 16:06:53 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/29 05:21:28 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <math.h>
 
 
-#define CUBE 10
+#define CUBE 64
 #define VIEW  100
 #define FEILD (60 * (M_PI / 180))
 #define UP  13
@@ -125,8 +125,8 @@ typedef struct s_ray
 
 typedef struct s_cub
 {
-    void *mlx;
-    void *mlx_win;
+    void    *mlx;
+    void    *mlx_win;
     void	*img;
     void    *img1;
     char    *addr1;
@@ -160,6 +160,8 @@ typedef struct s_cub
     int yellow;
     int red;
     int purple;
+
+    t_rgb map;
 } t_all;
 
 void init(t_all *cub);

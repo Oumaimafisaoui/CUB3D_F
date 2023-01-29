@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:18:37 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/24 16:33:12 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/29 05:35:06 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
 	t.so = NULL;
 	t.we = NULL;
 	map.t = &t;
+
     if (ac != 2)
 	{
 		ft_putstr_fd("Error Args !!!\n", 2);
