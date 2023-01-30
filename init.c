@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:57:34 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 13:20:54 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:52:09 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,6 @@ int ref(int key, t_all *cub)
 
 void launch_mlx(t_all *cub)
 {
-    key_ringring = -1;
     cub->mlx = mlx_init();
     if (cub->mlx == NULL)
         ft_error("mlx_init failed\n");
@@ -155,8 +154,6 @@ void launch_mlx(t_all *cub)
     cub->img1 = mlx_new_image(cub->mlx, WINDOW_W, WINDOW_H);
     cub->addr1 = mlx_get_data_addr(cub->img1, &cub->bits_per_pixel1, &cub->line_length1,
                                 &cub->endian1);
-
-    mlx_clear_window(cub->mlx, cub->mlx_win);
     draw_minimap(cub);
     get_player_coord(cub);
     put_big_player_circle(cub);
@@ -169,7 +166,6 @@ void launch_mlx(t_all *cub)
     mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->img, 0, 0);
     mlx_hook(cub->mlx_win, 2, 1L , mouvements, cub);
     mlx_hook(cub->mlx_win, 3, 1L, ref, cub);
-    // mlx_loop_hook(cub->mlx, der, &cub);
     mlx_hook(cub->mlx_win, 17, 0, exit_program, cub);
     mlx_loop(cub->mlx);
 }

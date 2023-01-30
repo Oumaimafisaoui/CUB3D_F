@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 18:39:22 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 16:07:19 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:54:31 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,10 @@ void normalize_rayangle(t_all *cub)
 void make_rays(t_all *cub)
 {
     int  j;
-    // double width;
-    double angle;
     
     j = 0;
-    angle = cub->player.ang;
     cub->var_d.num_rays = WINDOW_W;
-    cub->var_d.new_angle = angle - (FEILD / 2);
+    cub->var_d.new_angle = cub->player.ang - (FEILD / 2); //removed tmp variable angle
     normalize_rayangle(cub);
     while(j < cub->var_d.num_rays) 
     {

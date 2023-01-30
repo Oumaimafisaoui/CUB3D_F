@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:18:49 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 16:06:53 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:40:32 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,8 +175,8 @@ void dda(t_all *cub);
 void set_direction(t_all *cub);
 int	exit_program(t_all *cub);
 void event_left_right(t_all *cub, int key);
-int check_walls2(t_all *cub, int flag);
-int check_walls1(t_all *cub, int flag);
+void check_walls2(t_all *cub, int flag);
+void check_walls1(t_all *cub, int flag, double angle);
 void	my_mlx_pixel_put2(t_all *cub, int x, int y, int color);
 void init2(t_all *cub);
 void make_rays(t_all *cub);
@@ -204,7 +204,7 @@ void begining_vertical(t_all *cub);
 void find_short_distance(t_all *cub);
 void init_suite1(t_all *cub);
 void init_suite0(t_all *cub);
-int find_wall(int x, int y, t_all *cub);
+void find_wall(t_all *cub, double x, double y, int flag);
 void reset_variables(t_all *cub);
 void generate_3d(t_all *cub);
 void dda2(t_all *cub);
