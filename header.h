@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:18:49 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/30 18:40:32 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:58:47 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ void begining_vertical(t_all *cub);
 void find_short_distance(t_all *cub);
 void init_suite1(t_all *cub);
 void init_suite0(t_all *cub);
-void find_wall(t_all *cub, double x, double y, int flag);
+void find_wall(t_all *cub, double x, double y);
 void reset_variables(t_all *cub);
 void generate_3d(t_all *cub);
 void dda2(t_all *cub);
