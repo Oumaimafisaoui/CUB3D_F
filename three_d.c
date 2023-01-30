@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:55:40 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/29 05:45:27 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:56:21 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ void generate_3d(t_all *cub)
      int h,bits_per_pixel,line_length,endian;
      int i;
      i = 0;
-     void * img = mlx_xpm_file_to_image(cub->mlx, "parsing/xpmfile/wall5.xpm", &w, &h);
+     void * img = mlx_xpm_file_to_image(cub->mlx, "parsing/xpmfile/wall4.xpm", &w, &h);
+     if (!img)
+     {
+          printf("Error xpm file\n");
+          exit(1);
+     }
      unsigned int *adr1 = (unsigned int *)mlx_get_data_addr(img, &bits_per_pixel, &line_length, &endian); 
-     
      while(i < cub->var_d.num_rays)
      {
           cub->three.d_player_pro = (WINDOW_W / 2) / tan(FEILD / 2);

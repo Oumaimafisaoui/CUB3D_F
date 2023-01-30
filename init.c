@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:57:34 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 13:20:54 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:02:03 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void init(t_all *cub)
     cub->player.x = 0;
     cub->player.y = 0;
     cub->player.ang = M_PI;
-    cub->player.speed = 10;
+    cub->player.speed = 8;
     cub->player.rotation_speed = 3 * (M_PI / 180); //3 degree per frame it is in radian
     cub->player.turn_direction = 0; // -1 OR 1
     cub->player.walk_direction = 0;
@@ -132,17 +132,16 @@ void set_direction(t_all *cub)
         i++;
     }
 }
-int ref(int key, t_all *cub)
-{
-    (void)cub;
-    if(key == 13 || key == 1 || key == 0 || key == 2)
-        key = -1;
-    return(0);
-}
+// int ref(int key, t_all *cub)
+// {
+//     (void)cub;
+//     if(key == 13 || key == 1 || key == 0 || key == 2)
+//         key = -1;
+//     return(0);
+// }
 
 void launch_mlx(t_all *cub)
 {
-    key_ringring = -1;
     cub->mlx = mlx_init();
     if (cub->mlx == NULL)
         ft_error("mlx_init failed\n");
@@ -164,11 +163,11 @@ void launch_mlx(t_all *cub)
     make_rays(cub);
     mlx_clear_window(cub->mlx, cub->mlx_win);
     generate_3d(cub);
-    dda(cub);
+    // dda(cub);
     mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->img1, 0, 0);
     mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->img, 0, 0);
     mlx_hook(cub->mlx_win, 2, 1L , mouvements, cub);
-    mlx_hook(cub->mlx_win, 3, 1L, ref, cub);
+    // mlx_hook(cub->mlx_win, 3, 1L, ref, cub);
     // mlx_loop_hook(cub->mlx, der, &cub);
     mlx_hook(cub->mlx_win, 17, 0, exit_program, cub);
     mlx_loop(cub->mlx);

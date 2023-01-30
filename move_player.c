@@ -6,57 +6,29 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:27:59 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/26 15:35:59 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/30 20:02:08 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include <stdio.h>
-
 void event_left_right(t_all *cub, int key)
 {
     double angle;
 
+    angle = cub->player.ang + (90 * (M_PI / 180));
 	if (key == RIGHT) 
-	{
-        if(!check_walls1(cub, 1))
-        {
-            angle = cub->player.ang + (90 * (M_PI / 180));
-            cub->player.x += (cos(angle) * cub->player.speed); //in case of North : x = x - (cos((3PI / 2- pI/2) * 3) = 330 - 4 = 226 
-            cub->player.y += (sin(angle) * cub->player.speed); // 0 
-        }
-	}
+        check_walls1(cub, 1, angle);
 	else if (key == LEFT) 
-	{
-        if(!check_walls1(cub, 0))
-        {
-            angle = cub->player.ang + (90 * (M_PI / 180));
-            cub->player.x -= (cos(angle) * cub->player.speed);
-            cub->player.y -= (sin(angle) * cub->player.speed); //y is fix
-        }
-    }
+        check_walls1(cub, 0, angle);
 }
 
 
 void event_up_down(t_all *cub, int key)
 {
 	if (key == UP)
-    {
-        if(!check_walls2(cub, 1))
-        {
-            cub->player.x += cos(cub->player.ang) * cub->player.speed;//0
-            cub->player.y += sin(cub->player.ang) *  cub->player.speed; // y - (cos(ang) * speed)
-        }
-        
-    }
+        check_walls2(cub, 1);
 	else if(key == DOWN)
-    {
-        if(!check_walls2(cub, 0))
-        {
-            cub->player.x += cos(cub->player.ang) * (cub->player.speed * -1);//0
-            cub->player.y += sin(cub->player.ang) * (cub->player.speed * -1);
-        }
-    }
+        check_walls2(cub, 0);   
 }
 
 void rotate_player(int key, t_all *cub)
@@ -73,8 +45,6 @@ void rotate_player(int key, t_all *cub)
 
 int	mouvements(int key, t_all *cub)
 {
-
-    // key_ringring = key;
     (void)cub;
 	if (key == RIGHT || key == LEFT)
 		event_left_right(cub, key);
@@ -89,7 +59,7 @@ int	mouvements(int key, t_all *cub)
     make_rays(cub);
     mlx_clear_window(cub->mlx, cub->mlx_win);
     generate_3d(cub);
-    dda(cub);
+    // dda(cub);
     mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->img1, 0, 0); //image of window
     mlx_put_image_to_window(cub->mlx, cub->mlx_win, cub->img, 0, 0); //img of minimap
     return (1);

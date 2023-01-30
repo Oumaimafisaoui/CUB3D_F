@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:58:11 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/29 05:09:07 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:55:50 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	my_mlx_pixel_put2(t_all *cub, int x, int y, int color)
     if ((x >= 0 && x < cub->map_w) && (y >= 0 && y < cub->map_h))
     {
         dst = cub->addr + ((y * cub->line_length) + (x * (cub->bits_per_pixel / 8)));
-        *(unsigned int*)dst = color + (255 << 24);
+        *(unsigned int*)dst = color + (100 << 24);
     }
 }
 

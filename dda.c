@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 18:39:22 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/27 16:07:19 by oufisaou         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:01:58 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void dda(t_all *cub)
-{
-    int i;
+// void dda(t_all *cub)
+// {
+//     int i;
 
-    i = 0;
-    cub->var_d.x1 = cub->player.x + (cos(cub->player.ang) * VIEW);
-    cub->var_d.y1 = cub->player.y + (sin(cub->player.ang) * VIEW);
+//     i = 0;
+//     cub->var_d.x1 = cub->player.x + (cos(cub->player.ang) * VIEW);
+//     cub->var_d.y1 = cub->player.y + (sin(cub->player.ang) * VIEW);
 
-    cub->var_d.xx1  = cub->player.x;
-    cub->var_d.yy1 = cub->player.y;
+//     cub->var_d.xx1  = cub->player.x;
+//     cub->var_d.yy1 = cub->player.y;
 
-    if(fabs(cub->var_d.x1 - cub->player.x) > fabs(cub->var_d.y1 -  cub->player.y))
-        cub->var_d.steps = fabs(cub->var_d.x1 - cub->player.x);
-    else
-        cub->var_d.steps = fabs(cub->var_d.y1 - cub->player.y);
+//     if(fabs(cub->var_d.x1 - cub->player.x) > fabs(cub->var_d.y1 -  cub->player.y))
+//         cub->var_d.steps = fabs(cub->var_d.x1 - cub->player.x);
+//     else
+//         cub->var_d.steps = fabs(cub->var_d.y1 - cub->player.y);
 
-    cub->var_d.xinc = (cub->var_d.x1 - cub->player.x) / cub->var_d.steps;
-    cub->var_d.yinc = (cub->var_d.y1 - cub->player.y) / cub->var_d.steps;
+//     cub->var_d.xinc = (cub->var_d.x1 - cub->player.x) / cub->var_d.steps;
+//     cub->var_d.yinc = (cub->var_d.y1 - cub->player.y) / cub->var_d.steps;
 
-    while(i < cub->var_d.steps)
-    {
-        my_mlx_pixel_put2(cub, cub->var_d.xx1 , cub->var_d.yy1, 0x00FF0000);
-        cub->var_d.xx1 = cub->var_d.xx1 + cub->var_d.xinc;
-        cub->var_d.yy1 = cub->var_d.yy1 + cub->var_d.yinc;
-        i++;
-    }
-}
+//     while(i < cub->var_d.steps)
+//     {
+//         my_mlx_pixel_put2(cub, cub->var_d.xx1 , cub->var_d.yy1, 0x00FF0000);
+//         cub->var_d.xx1 = cub->var_d.xx1 + cub->var_d.xinc;
+//         cub->var_d.yy1 = cub->var_d.yy1 + cub->var_d.yinc;
+//         i++;
+//     }
+// }
 void dda2(t_all *cub)
 {
     int i;
@@ -153,7 +153,6 @@ void decide_casting(t_all *cub)
         cub->var_d.steps = fabs(cub->var_d.dx);
     else
         cub->var_d.steps = fabs(cub->var_d.dy);
-    dda2(cub);
 }
 
 

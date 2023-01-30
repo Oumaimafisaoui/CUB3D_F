@@ -1,6 +1,6 @@
 CC = cc
 RM = rm -rf
-XFLAGS = -Wall -Wextra -Werror  -Imlx -Ofast -ffast-math#-g -fsanitize=address,undefined,integer
+XFLAGS = -Wall -Wextra -Werror  -Imlx -Ofast -ffast-math -g -fsanitize=address,undefined,integer
 
 SRC =  	main.c cub3d_outils.c draw_minimap.c init.c move_player.c dda.c check_walls.c \
 		parsing/cub3d.c \

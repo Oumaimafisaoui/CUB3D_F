@@ -6,7 +6,7 @@
 /*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:18:49 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/29 05:21:28 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/30 19:57:49 by skasmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <math.h>
 
 
-#define CUBE 64
+#define CUBE 11
 #define VIEW  100
 #define FEILD (60 * (M_PI / 180))
 #define UP  13
@@ -33,7 +33,7 @@
 #define LEFT 0
 #define WINDOW_W 1920
 #define WINDOW_H 1080
-int key_ringring;
+
 typedef struct s_player
 {
     double x;
@@ -177,8 +177,8 @@ void dda(t_all *cub);
 void set_direction(t_all *cub);
 int	exit_program(t_all *cub);
 void event_left_right(t_all *cub, int key);
-int check_walls2(t_all *cub, int flag);
-int check_walls1(t_all *cub, int flag);
+void check_walls2(t_all *cub, int flag);
+void check_walls1(t_all *cub, int flag, double angle);
 void	my_mlx_pixel_put2(t_all *cub, int x, int y, int color);
 void init2(t_all *cub);
 void make_rays(t_all *cub);
@@ -206,7 +206,7 @@ void begining_vertical(t_all *cub);
 void find_short_distance(t_all *cub);
 void init_suite1(t_all *cub);
 void init_suite0(t_all *cub);
-int find_wall(int x, int y, t_all *cub);
+void find_wall(t_all *cub, double x, double y);
 void reset_variables(t_all *cub);
 void generate_3d(t_all *cub);
 void dda2(t_all *cub);
