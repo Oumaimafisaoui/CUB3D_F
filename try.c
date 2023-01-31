@@ -145,13 +145,28 @@ void event_left_right(t_all *cub, int key)
     }
 }
 
+void check_walls1(t_all *cub, int flag, double)
 
 
 
 
+void event_left_right(t_all *cub, int key)
+{
+    double angle;
 
+    angle = cub->player.ang + (90 * (M_PI / 180));
+    if (key == RIGHT)
+        check_walls1(cub, 1, angle);
+    else if(key == LEFT)
+         check_walls1(cub, 0, angle);
+}
 
-
+int mouvement(int key, t_all *cub)
+{
+    (void)cub;
+    if( key == LEFT|| key == RIGHT)
+        event_left_right(cub, key);
+}
 
 
 
