@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   three_d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:55:40 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/30 19:56:21 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:28:54 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ int	create_trgb(int t, int r, int g, int b)
 
 void generate_3d(t_all *cub)
 {
-
-     
      int w;
      int h,bits_per_pixel,line_length,endian;
      int i;
      i = 0;
-     void * img = mlx_xpm_file_to_image(cub->mlx, "parsing/xpmfile/wall4.xpm", &w, &h);
+     void * img = mlx_xpm_file_to_image(cub->mlx, "parsing/xpmfile/EA.xpm", &w, &h);
      if (!img)
      {
           printf("Error xpm file\n");
@@ -36,9 +34,23 @@ void generate_3d(t_all *cub)
      while(i < cub->var_d.num_rays)
      {
           cub->three.d_player_pro = (WINDOW_W / 2) / tan(FEILD / 2);
-          cub->three.ray_distance = cub->ray[i].distance * (cos(cub->ray[i].angle  - cub->player.ang));
+          cub->ray[i].angle = fmod(cub->ray[i].angle,(2 * M_PI));
+          // if (cub->ray[i].angle <= 0)
+          // {
+          //      cub->ray[i].angle = (2 * M_PI) + cub->ray[i].angle;
+          // }
+          cub->three.ray_distance = cub->ray[i].distance * (cos(cub->ray[i].angle - cub->player.ang));
+          cub->ray[i].angle = fmod(cub->ray[i].angle,(2 * M_PI));
+          // if (cub->ray[i].angle <= 0)
+          // {
+          //      cub->ray[i].angle = (2 * M_PI) + cub->ray[i].angle;
+          // }
           cub->three.wall_projection = (CUBE / cub->three.ray_distance) * cub->three.d_player_pro;
-
+          cub->ray[i].angle = fmod(cub->ray[i].angle,(2 * M_PI));
+          // if (cub->ray[i].angle <= 0)
+          // {
+          //      cub->ray[i].angle = (2 * M_PI) + cub->ray[i].angle;
+          // }
           double wall_height = cub->three.wall_projection;
           double wall_top_pix = (WINDOW_H / 2) - (wall_height / 2);
           

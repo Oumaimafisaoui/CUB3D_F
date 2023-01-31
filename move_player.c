@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:27:59 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/30 20:02:08 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:11:46 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void event_up_down(t_all *cub, int key)
 
 void rotate_player(int key, t_all *cub)
 {
-    if(key == 35)
+    if(key == 123)
     {
         cub->player.ang -= cub->player.rotation_speed;
     }
-    else if (key == 31)
+    else if (key == 124)
     {
         cub->player.ang += cub->player.rotation_speed;
     }

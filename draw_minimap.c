@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skasmi <skasmi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:58:11 by oufisaou          #+#    #+#             */
-/*   Updated: 2023/01/30 19:55:50 by skasmi           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:23:01 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	my_mlx_pixel_put2(t_all *cub, int x, int y, int color)
     if ((x >= 0 && x < cub->map_w) && (y >= 0 && y < cub->map_h))
     {
         dst = cub->addr + ((y * cub->line_length) + (x * (cub->bits_per_pixel / 8)));
-        *(unsigned int*)dst = color + (100 << 24);
+        *(unsigned int*)dst = color + (90 << 24);
     }
 }
 
@@ -30,7 +30,7 @@ void	my_mlx_pixel_put3(t_all *cub, int x, int y, int color)
     if ((x >= 0 && x < WINDOW_W) && (y >= 0 && y < WINDOW_H))
     {
         dst = cub->addr1 + ((y * cub->line_length1) + (x * (cub->bits_per_pixel1 / 8)));
-        *(unsigned int*)dst = color;
+        *(unsigned int*)dst = color ;
     }
 }
 
